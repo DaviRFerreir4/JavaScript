@@ -5,27 +5,48 @@ const server = fastify();
 const database = new DatabaseMemory();
 
 server.post('/video', (request, reply) => {
+    const {title, description, duration} = request.body;
+
     database.create({
-        title: "Tutorial de Node.js",
-        description: "Hoje vamos aprender mais sobre Node.js",
-        duration: 180
+        title,
+        description,
+        duration
     });
 
-    console.log(database.list());
+    //console.log(database.list());
 
     return reply.status(201).send();
 });
 
-server.get('/video', () => {
-    return 'asd';
+server.get('/video', (request, reply) => {
+    const search = request.query.search;
+
+    //console.log(search);
+
+    const videos = database.list(search);
+
+    return videos;
 });
 
-server.put('/video/:id', () => {
-    return '';
+server.put('/video/:id', (request, reply) => {
+    const videoId = request.params.id;
+    const {title, description, duration} = request.body;
+
+    database.update(videoId, {
+        title,
+        description,
+        duration
+    });
+
+    return reply.status(204).send();
 });
 
-server.delete('/video/:id', () => {
-    return '';
+server.delete('/video/:id', (request, reply) => {
+    const videoId = request.params.id;
+
+    database.delete(videoId);
+
+    return reply.status(204).send();
 });
 
 server.get('/', async (req, res) => {

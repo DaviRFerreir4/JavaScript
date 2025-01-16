@@ -1,1 +1,31 @@
 POST http://localhost:3333/video
+Content-Type: application/json
+
+{
+    "title": "Tutorial de requisições de criação em js",
+    "description": "Hoje vamos aprender mais sobre Node.js. Este é o primeiro vídeo cadastrado no servidor local utilizando a requisição POST.",
+    "duration": 180
+}
+
+###
+
+GET http://localhost:3333/video
+
+###
+
+PUT http://localhost:3333/video/207bdefa-3844-48fc-b1de-a83dbfa92286
+Content-Type: application/json
+
+{
+    "title": "Tutorial de requisições de mudança em Node.js",
+    "description": "Hoje vamos aprender mais sobre Node.js. Este é o primeiro vídeo cadastrado no servidor local utilizando a requisição POST.",
+    "duration": 180
+}
+
+###
+
+DELETE http://localhost:3333/video/207bdefa-3844-48fc-b1de-a83dbfa92286
+
+###
+
+GET http://localhost:3333/video?search=Node
