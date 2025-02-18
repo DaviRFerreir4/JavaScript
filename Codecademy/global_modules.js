@@ -20,17 +20,26 @@ import { readFile } from 'node:fs/promises';
 const filePath = "data.json";
 
 // procurar um jeito de ler o arquivo e retornar somente os dados da pesquisa
+let usuario;
 
 readFile(filePath, "utf-8").then(jsonRes => {
     const dados = JSON.parse(jsonRes);
-    const usuarioLogado = dados.usuarios.filter((usuario => {
-        return (usuario.nome == user) ? usuario : false;
+    usuario = dados.usuarios.filter((value => {
+        return value.nome == user;
     }));
-    if (usuarioLogado == "") {
+    if (usuario == "") {
         console.log("\nErro: usuário não encontrado");
     } else {
-        console.log(`\nUsuário encontrado!\nNome: ${usuarioLogado[0].nome}\nSenha: ${usuarioLogado[0].senha}\n`);
+        console.log(`\nUsuário encontrado!\nNome: ${usuario[0].nome}\nSenha: ${usuario[0].senha}\n`);
     }
 }).catch(err => {
     console.log(`Erro: ${err}`);
 })
+
+console.log("Estamos buscando o usuário desejado no nosso banco de dados, por favor aguarde...");
+
+//ESTAVA TENTANDO DAR UMA MENSAGEM DE BEM VINDO SOMENTE QUANDO O USUÁRIO RECEBESSE UM VALOR 
+
+//setTimeout(() => console.log(typeof(usuario)), 100);
+
+if (usuario != "") setTimeout(() => console.log(`\nSeja bem vindo, ${usuario[0].nome}`), 500);
