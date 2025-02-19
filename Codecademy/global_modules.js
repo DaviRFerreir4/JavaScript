@@ -10,7 +10,7 @@ import { stdin as input, stdout as output } from 'node:process';
 const rl = readline.createInterface({ input, output });
 
 const user = await rl.question('Usuário: ');
-//const password = await rl.question('Senha: ');
+const password = await rl.question('Senha: ');
 
 rl.close();
 
@@ -41,17 +41,17 @@ console.log("Estamos buscando o usuário desejado no nosso banco de dados, por f
 
 // A forma correta de fazer isso seria deixar colocar essa funcionalidade dentro da promise (pois o tempo de resposta não seria necessariamente seria 0,1 segundos), mas para exemplificar a assincronidade da promise ele foi colocado fora
 setTimeout(() => {
-    if (usuario != "") console.log(`\nSeja bem vindo, ${usuario[0].nome}`)
+    if (usuario != "") console.log(`Seja bem vindo, ${usuario[0].nome}\n`)
     else {
         console.log("Tente um usuário existente");
         process.exit(1)
     }
-
-    /*let senhaCrypto
-    bcrypt.hash(usuario[0].senha, 10, (err, hash) => {
-        if (!err) {
-            console.log(hash);
+    bcrypt.compare(password, usuario[0].senha).then((res, err) => {
+        if (res) {
+            console.log("Senha correta");            
+        } else {
+            console.log("Senha incorreta");
+            process.exit(1);
         }
-        else console.log(err);
-})*/
+    })
 }, 100);
