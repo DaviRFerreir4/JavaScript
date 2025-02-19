@@ -2,19 +2,19 @@
     "usuarios": [
         {
             "nome": "Davi",
-            "senha": "davi123"
+            "senha": "$2b$10$d64SeewGZl51O/FZM4H5Z.LXBrnnFkMYEf7to7nCTm5U3s3ALhGBW"
         },
         {
             "nome": "Sara",
-            "senha": "hj78lo9s#S"
+            "senha": "$2b$10$lDhKdq2nS/A9gxd/b9IL5eFLvxMdp9vSWWoWMc.xYRK.H8X63UHYG"
         },
         {
             "nome": "Paulo",
-            "senha": "Drow(40)Ssap"
+            "senha": "$2b$10$X.0hDvj/EeBXOXiCr.dEp.YIcZZun8vPdFb05yVRCskQq0xJ3nHj6"
         },
         {
             "nome": "Flávia",
-            "senha": "Sjnd0725*"
+            "senha": "$2b$10$B02gtS8XrsPeFyFy9Po76umuau/FT6vjyXSTZ7bSNVOyRwM7SUHOa"
         }
     ]
 }

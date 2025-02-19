@@ -1,0 +1,18 @@
+"usuarios": [
+    {
+        "nome": "Davi",
+        "senha": "davi123"
+    },
+    {
+        "nome": "Sara",
+        "senha": "hj78lo9s#S"
+    },
+    {
+        "nome": "Paulo",
+        "senha": "Drow(40)Ssap"
+    },
+    {
+        "nome": "Flávia",
+        "senha": "Sjnd0725*"
+    }
+]

@@ -17,6 +17,7 @@ rl.close();
 //----------------------------------------------------------------------
 
 import { readFile } from 'node:fs/promises';
+import * as bcrypt from 'bcrypt';
 const filePath = "data.json";
 
 // procurar um jeito de ler o arquivo e retornar somente os dados da pesquisa
@@ -38,8 +39,19 @@ readFile(filePath, "utf-8").then(jsonRes => {
 
 console.log("Estamos buscando o usuário desejado no nosso banco de dados, por favor aguarde...");
 
-//ESTAVA TENTANDO DAR UMA MENSAGEM DE BEM VINDO SOMENTE QUANDO O USUÁRIO RECEBESSE UM VALOR 
+// A forma correta de fazer isso seria deixar colocar essa funcionalidade dentro da promise (pois o tempo de resposta não seria necessariamente seria 0,1 segundos), mas para exemplificar a assincronidade da promise ele foi colocado fora
+setTimeout(() => {
+    if (usuario != "") console.log(`\nSeja bem vindo, ${usuario[0].nome}`)
+    else {
+        console.log("Tente um usuário existente");
+        process.exit(1)
+    }
 
-//setTimeout(() => console.log(typeof(usuario)), 100);
-
-if (usuario != "") setTimeout(() => console.log(`\nSeja bem vindo, ${usuario[0].nome}`), 500);
+    /*let senhaCrypto
+    bcrypt.hash(usuario[0].senha, 10, (err, hash) => {
+        if (!err) {
+            console.log(hash);
+        }
+        else console.log(err);
+})*/
+}, 100);
