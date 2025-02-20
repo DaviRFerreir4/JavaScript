@@ -1,8 +1,11 @@
 import * as bcrypt from 'bcrypt';
 
-function hash(password) {
-    bcrypt.hash(password, 10).then((hash, err) => {
-        if (!err) return hash;
-        else return console.log(`Ocorreu o seguinte erro ao tentarmos registrar sua senha: ${err}`);
+export async function hashSenha(password) {
+    let senhaCrypto;
+    await bcrypt.hash(password, 10).then((hash) => {
+        senhaCrypto = hash;
+    }).catch((err) => {
+        return `Ocorreu o seguinte erro: ${err}`;
     })
+    return senhaCrypto;
 }

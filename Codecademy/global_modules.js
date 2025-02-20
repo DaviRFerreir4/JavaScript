@@ -1,4 +1,5 @@
 import os from 'node:os';
+
 console.clear();
 console.log(`Você está utilizando o seguinte sistema operacional: ${os.type()}\n`);
 
@@ -19,7 +20,6 @@ rl.close();
 import { readFile } from 'node:fs/promises';
 import * as bcrypt from 'bcrypt';
 const filePath = "data.json";
-
 // procurar um jeito de ler o arquivo e retornar somente os dados da pesquisa
 let usuario;
 
@@ -55,3 +55,10 @@ setTimeout(() => {
         }
     })
 }, 100);
+
+//--------------------------------------------------------------
+
+//função para criptografar uma senha
+import { hashSenha } from './hash.js'
+
+console.log(await hashSenha("davi005"));
