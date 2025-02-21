@@ -1,6 +1,6 @@
 import * as bcrypt from 'bcrypt';
 
-export async function hashSenha(password) {
+export async function hashPass(password) {
     let senhaCrypto;
     await bcrypt.hash(password, 10).then((hash) => {
         senhaCrypto = hash;

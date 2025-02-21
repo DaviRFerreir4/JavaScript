@@ -8,7 +8,7 @@ console.log(`Você está utilizando o seguinte sistema operacional: ${os.type()}
 import * as readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 
-import { hashSenha } from './hash.js'
+import { hashPass } from './hash.js'
 
 import { readFile } from 'node:fs/promises';
 import { writeFile } from 'node:fs/promises';
@@ -16,7 +16,7 @@ import { writeFile } from 'node:fs/promises';
 import * as bcrypt from 'bcrypt';
 
 
-
+const filePath = "data.json";
 const rl = readline.createInterface({ input, output });
 var answer;
 do {
@@ -37,25 +37,24 @@ do {
 } while (answer != "S" && answer != "s" && answer != "N" && answer != "n");
 if (answer == "S" || answer == "s") {
     const user = await rl.question('Usuário: ');
-    const password = await rl.question('Senha: ');
+    const pass = await rl.question('Senha: ');
 
     rl.pause();
 
 
     // procurar um jeito de ler o arquivo e retornar somente os dados da pesquisa
-    const filePath = "data.json";
-    let usuario;
+    let userDB;
 
     readFile(filePath, "utf-8").then(jsonRes => {
-        const dados = JSON.parse(jsonRes);
-        usuario = dados.usuarios.filter((value => {
+        let data = JSON.parse(jsonRes);
+        userDB = data.usuarios.filter((value => {
             return value.nome == user;
         }));
-        if (usuario == "") {
+        if (userDB == "") {
             console.log("\nErro: usuário não encontrado");
         } else {
-            console.log(`\nUsuário encontrado!\nNome: ${usuario[0].nome}\n`);
-            // CÓDIGO DE TESTE: console.log(`Senha: ${usuario[0].senha}\n`);
+            console.log(`\nUsuário encontrado!\nNome: ${userDB[0].nome}\n`);
+            // CÓDIGO DE TESTE: console.log(`Senha: ${userDB[0].senha}\n`);
         }
     }).catch(err => {
         console.log(`Erro: ${err}`);
@@ -66,13 +65,13 @@ if (answer == "S" || answer == "s") {
     // A forma correta de fazer isso seria deixar colocar essa funcionalidade dentro da promise (pois o tempo de resposta não seria necessariamente seria 0,1 segundos), mas para exemplificar a assincronidade da promise ele foi colocado fora
 
     setTimeout(async () => {
-        if (usuario == "") {
+        if (userDB == "") {
             console.log("Tente um usuário existente");
             process.exit(1)
         }
-        await bcrypt.compare(password, usuario[0].senha).then((res, err) => {
+        await bcrypt.compare(pass, userDB[0].senha).then((res, err) => {
             if (res) {
-                console.log(`Senha correta. Seja bem vindo ${usuario[0].nome}!`);
+                console.log(`Senha correta. Seja bem vindo ${userDB[0].nome}!`);
             } else {
                 console.log("Senha incorreta");
                 process.exit(1);
@@ -82,11 +81,23 @@ if (answer == "S" || answer == "s") {
 } else if (answer == "N" || answer == "n") {
     // função para criptografar uma senha
     const newUser = await rl.question("Criando um usuário novo...\n\nDigite seu usuário: ");
-    const newPassword = await rl.question("Crie uma senha para seu usuário: ");
+    const newPass = await rl.question("Crie uma senha para seu usuário: ");
 
     rl.close();
 
-    // CÓDIGO DE TESTE: console.log(await hashSenha(newPassword));
+    readFile(filePath, "utf-8").then(jsonRes => {
+        let data = JSON.parse(jsonRes);
+        let newData = {
+            "nome": newUser,
+            "senha": hashPass(newPass)
+        };
+        data.push(newData);
+        writeFile(filePath, JSON.stringify(data), err => {
+            if (err) console.log(err);
+            else console.log("foi?");
+        })
+    })
+    // CÓDIGO DE TESTE: console.log(await );
 
     // utilizar os dados digitados para criar um novo registro nos usuários do arquivo data.json
 }
