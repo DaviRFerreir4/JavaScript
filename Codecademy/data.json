@@ -1,20 +1,32 @@
 {
-    "usuarios": [
-        {
-            "nome": "Davi",
-            "senha": "$2b$10$d64SeewGZl51O/FZM4H5Z.LXBrnnFkMYEf7to7nCTm5U3s3ALhGBW"
-        },
-        {
-            "nome": "Sara",
-            "senha": "$2b$10$lDhKdq2nS/A9gxd/b9IL5eFLvxMdp9vSWWoWMc.xYRK.H8X63UHYG"
-        },
-        {
-            "nome": "Paulo",
-            "senha": "$2b$10$X.0hDvj/EeBXOXiCr.dEp.YIcZZun8vPdFb05yVRCskQq0xJ3nHj6"
-        },
-        {
-            "nome": "Flávia",
-            "senha": "$2b$10$B02gtS8XrsPeFyFy9Po76umuau/FT6vjyXSTZ7bSNVOyRwM7SUHOa"
-        }
-    ]
+  "usuarios": [
+    {
+      "nome": "Davi",
+      "senha": "$2b$10$d64SeewGZl51O/FZM4H5Z.LXBrnnFkMYEf7to7nCTm5U3s3ALhGBW"
+    },
+    {
+      "nome": "Sara",
+      "senha": "$2b$10$lDhKdq2nS/A9gxd/b9IL5eFLvxMdp9vSWWoWMc.xYRK.H8X63UHYG"
+    },
+    {
+      "nome": "Paulo",
+      "senha": "$2b$10$X.0hDvj/EeBXOXiCr.dEp.YIcZZun8vPdFb05yVRCskQq0xJ3nHj6"
+    },
+    {
+      "nome": "Flávia",
+      "senha": "$2b$10$B02gtS8XrsPeFyFy9Po76umuau/FT6vjyXSTZ7bSNVOyRwM7SUHOa"
+    },
+    {
+      "nome": "Cláudio",
+      "senha": "$2b$10$eRWme2Iicy3m9Cw6Mzf/TezZp4txjGcBQVqb6pqAwBo9ktRhcuQx6"
+    },
+    {
+      "nome": "Jorge",
+      "senha": "$2b$10$daFlBhzl59dGCBkRjDihl.ZULWnVldEwNRG0e2azz.0L7oREdZ3xK"
+    },
+    {
+      "nome": "Hélio",
+      "senha": "$2b$10$qJDDHcdum0s8lxMxMcfO1OF7LFZ677HHL6aRHw9apt.Fu2C0vQPZ."
+    }
+  ]
 }

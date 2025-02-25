@@ -85,14 +85,15 @@ if (answer == "S" || answer == "s") {
 
     rl.close();
 
-    readFile(filePath, "utf-8").then(jsonRes => {
+    readFile(filePath, "utf-8").then(async jsonRes => {
         let data = JSON.parse(jsonRes);
         let newData = {
             "nome": newUser,
-            "senha": hashPass(newPass)
+            "senha": await hashPass(newPass)
         };
-        data.push(newData);
-        writeFile(filePath, JSON.stringify(data), err => {
+        data.usuarios.push(newData)
+        console.log(data.usuarios);
+        writeFile(filePath, JSON.stringify(data, null, 2), err => {
             if (err) console.log(err);
             else console.log("foi?");
         })
