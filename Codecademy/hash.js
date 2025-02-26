@@ -9,3 +9,11 @@ export async function hashPass(password) {
     })
     return senhaCrypto;
 }
+
+export function chkPass(passUser, passDb) {
+    return bcrypt.compare(passUser, passDb).then((res) => {
+        return res;
+    }).catch(err => {
+        return err;
+    })
+}
