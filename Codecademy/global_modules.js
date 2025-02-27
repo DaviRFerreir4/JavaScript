@@ -64,7 +64,13 @@ if (answer == "S" || answer == "s") {
     rl.close();
     // inserindo o novo registro no arquivo
     wrtUser(newUser, newPass).then(res => {
-        console.log(res);
+        if (res === undefined) {
+            console.log("Novo usuário registrado com sucesso. Por favor, abra nova");
+        } else {
+            console.log("Ocorreu um erro ao registrar seu usuário. Por favor, tente novamente mais tarde");
+        }
+    }).catch(err => {
+        console.log(err);
     });
     // linha de código fora da promise para exemplificar a assincronidade do programa
     console.log("Criando usuário, por favor aguarde...\n");
@@ -73,8 +79,6 @@ if (answer == "S" || answer == "s") {
 /* funcionalidades a serem implementadas
 
     funcionalidades urgentes
-        - separar funções de leitura e escrita de arquivo
-        - separar função de verificação de hash
         - conexão com banco de dados PostgreSql
 
     próximas funcionalidades

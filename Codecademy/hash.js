@@ -1,19 +1,15 @@
 import * as bcrypt from 'bcrypt';
 
 export function hashPass(password) {
-    return bcrypt.hash(password, 14).catch((err) => {
-        return `Ocorreu o seguinte erro: ${err}`;
+    return bcrypt.hash(password, 14).catch(() => {
+        return "";
     });
 }
 
 export function chkPass(passUser, passDb) {
     return bcrypt.compare(passUser, passDb).then((res) => {
         return res;
-    }).catch(err => {
-        return err;
+    }).catch(() => {
+        return "";
     });
 }
-
-hashPass("asd").then(res => {
-    console.log(res);
-});

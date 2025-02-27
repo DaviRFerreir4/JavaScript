@@ -9,8 +9,8 @@ export function rtrnUser(user) {
         return data.usuarios.filter((value => {
             return value.nome == user;
         }));
-    }).catch(err => {
-        return err;
+    }).catch(() => {
+        return "";
     });
 }
 
@@ -24,7 +24,11 @@ export function wrtUser(user, pass) {
         data.usuarios.push(newData);
         return await writeFile(filePath, JSON.stringify(data, null, 2)).then(res => {
             console.log(res);
+        }).catch(() => {
+            return "";
         });
+    }).catch(() => {
+        return "";
     });
 }
 /*
