@@ -34,6 +34,14 @@
       "nome": "Hélio",
       "senha": "$2b$10$qJDDHcdum0s8lxMxMcfO1OF7LFZ677HHL6aRHw9apt.Fu2C0vQPZ.",
       "email": "helinhocamillo@gmail.com"
+    },
+    {
+      "nome": "Rogério",
+      "senha": "rogerP23#"
+    },
+    {
+      "nome": "Barbara",
+      "senha": "Barb13)("
     }
   ]
 }

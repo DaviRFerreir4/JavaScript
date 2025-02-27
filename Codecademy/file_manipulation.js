@@ -11,21 +11,27 @@ export function rtrnUser(user) {
         }));
     }).catch(err => {
         return err;
-    })
+    });
 }
 
 export function wrtUser(user, pass) {
-    return readFile(filePath, "utf-8").then(jsonRes => {
+    return readFile(filePath, "utf-8").then(async jsonRes => {
         let data = JSON.parse(jsonRes);
         let newData = {
             "nome": user,
             "senha": pass
-        }
-        data.usuarios.push(newData)
-        console.log(data.usuarios);
-        writeFile(filePath, JSON.stringify(data, null, 2), err => {
-            if (err) console.log(err);
-            else console.log("foi?");
-        })
-    })
+        };
+        data.usuarios.push(newData);
+        return await writeFile(filePath, JSON.stringify(data, null, 2)).then(res => {
+            console.log(res);
+        });
+    });
 }
+/*
+rtrnUser("Rogério").then(res => {
+    console.log(res);
+})
+
+wrtUser("Nina", "asdasd.,8").then(res => {
+    console.log(res);
+})|*/
