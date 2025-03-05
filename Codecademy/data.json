@@ -36,12 +36,20 @@
       "email": "helinhocamillo@gmail.com"
     },
     {
-      "nome": "Rogério",
-      "senha": "rogerP23#"
+      "nome": "Linda",
+      "senha": "$2b$14$QAm4l0YygwqVU6C3RsrgYekGKDEvGXh/hvWEc5NMXSvYcHzpZ6o76"
     },
     {
-      "nome": "Barbara",
-      "senha": "Barb13)("
+      "nome": "Mbape",
+      "senha": "$2b$14$a.kJaEQ0aG3cJ.imOn2u5uNIVo9QZNCCO85S9AUnMDBQpwvD9tXjS"
+    },
+    {
+      "nome": "Carlos Eduardo",
+      "senha": "$2b$14$mWFtcL1XPwgp0OCobmi22uehuVUS1SWYXUjIuDEUypyucwn1ps/Fi"
+    },
+    {
+      "nome": "Luiz",
+      "senha": "$2b$14$OV/Yac3y8e50gVh3N1ZEHenNioODnQ6vy4s2.XEk207oILJoY9JTS"
     }
   ]
 }

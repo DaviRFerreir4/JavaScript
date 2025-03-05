@@ -62,10 +62,13 @@ if (answer == "S" || answer == "s") {
     const newPass = await rl.question("Crie uma senha para seu usuário: ");
 
     rl.close();
+
     // inserindo o novo registro no arquivo
     wrtUser(newUser, newPass).then(res => {
         if (res === undefined) {
-            console.log("Novo usuário registrado com sucesso. Por favor, abra nova");
+            console.log("Novo usuário registrado com sucesso!");
+        } else if (res == "igual") {
+            setTimeout(() => console.log("Erro: já existe um usuário com esse nome"), 100);
         } else {
             console.log("Ocorreu um erro ao registrar seu usuário. Por favor, tente novamente mais tarde");
         }
