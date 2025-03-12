@@ -50,6 +50,10 @@
     {
       "nome": "Luiz",
       "senha": "$2b$14$OV/Yac3y8e50gVh3N1ZEHenNioODnQ6vy4s2.XEk207oILJoY9JTS"
+    },
+    {
+      "nome": "Tyrone",
+      "senha": "$2b$14$oxyE1Z6fMJfxCbtzW/y2QOhytO6L.Gy3gf2MAgEJ7TNU4My3nWAZ."
     }
   ]
 }
