@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <title>Componentes React e props</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/jsx">
+            const app = document.getElementById("app");
+            const arrayExmp = ["Lista", "de", "elementos"]
+
+            function Header( {title} ) {
+                console.log(title);
+                return(
+                    <>
+                        <h1>Exemplo de componente de cabeçalho usando {title ? title : "React, é óbvio"}</h1>
+                        <Navigator data={arrayExmp}/>
+                    </>
+                );
+            }
+
+            function Navigator( {data} ) {
+                console.log(data);
+                return(
+                    <>
+                        <ul>
+                            {data.map((elmts) => (
+                                <li key={elmts}>{elmts}</li>
+                            ))}
+                        </ul>
+                    </>
+                );
+            }
+
+            function HomePage( {title} ) {
+                return(
+                    <>
+                        <Header title={title}/>
+                    </>
+                )
+            }
+
+            const root = ReactDOM.createRoot(app);
+            root.render(<HomePage title="React"/>);
+            setTimeout(() => root.render(<HomePage/>), 2000);
+        </script>
+    </body>
+</html>
