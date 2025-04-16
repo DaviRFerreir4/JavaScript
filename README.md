@@ -1,2 +1,2 @@
-# Node
- Estudos pessoais sobre Node Js
+# JavaScript
+ Estudos pessoais sobre JavaScript (Node e React)
